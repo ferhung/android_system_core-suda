@@ -915,6 +915,8 @@ static selinux_enforcing_status selinux_status_from_cmdline() {
 
 static bool selinux_is_disabled(void)
 {
+    return false;  /*return false then set to permissive*/
+
     if (ALLOW_DISABLE_SELINUX) {
         if (access("/sys/fs/selinux", F_OK) != 0) {
             // SELinux is not compiled into the kernel, or has been disabled
